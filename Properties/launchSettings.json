@@ -2,7 +2,7 @@
   "profiles": {
     "XMind2Xls": {
       "commandName": "Project",
-      "commandLineArgs": "--inputFile=\"d:\\temp1\\test_version8.xmind\" --outputFile=\"d:\\temp1\\result.xlsx\" --headers=\"d:\\temp1\\headers.txt\""
+      "commandLineArgs": "--inputFile=\"d:\\temp1\\Simulation Data Presentation.xmind\" --outputFile=\"d:\\temp1\\result.xlsx\" --headers=\"d:\\temp1\\Simulation Data Presentation_Headers.txt\""
     }
   }
 }

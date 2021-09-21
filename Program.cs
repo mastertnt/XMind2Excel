@@ -182,6 +182,31 @@ namespace XMind2Xls
                             }
                         }
 
+                        for (int lColumnIndex = 1; lColumnIndex <= pNoHeader; lColumnIndex++)
+                        {
+                            string lPreviousValue = lWorkSheet.Cells[1, lColumnIndex].Value?.ToString();
+                            lNbRowToMerge = 1;
+                            for (int lRowIndex = 2; lRowIndex <= 1000; lRowIndex++)
+                            {
+                                string lCurrentValue = lWorkSheet.Cells[lRowIndex, lColumnIndex].Value?.ToString();
+                                if (lPreviousValue != lCurrentValue)
+                                {
+                                    if (lNbRowToMerge > 1)
+                                    {
+                                        lWorkSheet.Cells[lRowIndex - lNbRowToMerge, lColumnIndex, lRowIndex - 1, lColumnIndex].Merge = true;
+                                    }
+
+                                    lNbRowToMerge = 1;
+                                    lPreviousValue = lCurrentValue;
+                                }
+                                else
+                                {
+                                    lNbRowToMerge++;
+                                }
+                                
+                            }
+                        }
+
                         for (int lRowIndex = 1; lRowIndex <= 1000; lRowIndex++)
                         {
                             for (int lColumnIndex = 1; lColumnIndex <= pColumnHeaders.Count; lColumnIndex++)
